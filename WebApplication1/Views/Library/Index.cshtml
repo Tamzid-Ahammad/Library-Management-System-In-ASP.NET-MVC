@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApplication1.Models.LibraryMangementSystem>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .book-card {
+        height: 100px;
+        width: 200px;
+        float: left;
+        display: inline-block;
+        padding: 10px;
+        margin: 25px;
+        border: solid 1px green;
+    }
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaysforBookBorrowed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaysforBookBorrowed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LibraryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LibraryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LibraryId })
+        </td>
+    </tr>
+}
+
+</table>
